@@ -18,6 +18,7 @@ class API{
         val pastEvent1 = Event(2, user1, "past event1", "desc Event1", "Seoul")
         val pastEvent2 = Event(3, user1, "past event2", "desc Event2", "Seoul")
 
+        val eventList = arrayListOf<Event>()
 
         fun getUserProfileData(searchQuery: SearchQuery) : List<UserProfileData> =  listOf(UserProfileData(user1,
                     reviews = listOf(review1),
@@ -35,10 +36,16 @@ class API{
                 reviews = listOf(review1, review1),
                 history = listOf(history1, history1))
 
-        fun getFutureEventsForUsers(id: Int) = listOf(futureEvent1, futureEvent2)
+        fun getFutureEventsForUsers(id: Int) = eventList
 
         fun getPastEventsForUsers(id: Int) = listOf(pastEvent1, pastEvent2)
 
         fun getEvent(id: Int) = futureEvent1
+
+        fun getCurrentUser() = user1
+
+        fun addEvent(event: Event){
+            eventList.add(event)
+        }
     }
 }

@@ -1,9 +1,9 @@
 package snu.kr.helptohelp.activities.event
 
-import android.app.Activity
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.view.View
 import kotlinx.android.synthetic.main.activity_event.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.model.Event
@@ -32,4 +32,6 @@ class EventPageView : EventPage.View, AppCompatActivity() {
         event_name.text = event.title
         event_description.text = event.description
     }
+
+
 }

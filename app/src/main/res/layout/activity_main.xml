@@ -28,7 +28,7 @@
     </android.support.v4.view.ViewPager>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/fab_newevent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -40,4 +40,17 @@
         app:srcCompat="@drawable/ic_plus"
         app:fabSize="normal"
         android:onClick="onAdd"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/fab_newevent"
+        app:layout_constraintEnd_toEndOf="@+id/fab_newevent"
+        app:layout_constraintStart_toStartOf="@+id/fab_newevent"
+        app:srcCompat="@drawable/ic_search"
+        android:onClick="onSearch"
+        app:fabSize="mini"/>
 </android.support.constraint.ConstraintLayout>

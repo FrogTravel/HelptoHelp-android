@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_user.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.main.fragments.FutureEventsFragment
 import snu.kr.helptohelp.activities.main.fragments.PastEventsFragment
+import snu.kr.helptohelp.activities.newEvent.NewEventView
 import snu.kr.helptohelp.activities.profile.UserProfileView
 import snu.kr.helptohelp.activities.search.SearchResultView
 import snu.kr.helptohelp.activities.userPage.util.ViewPagerAdapter
@@ -44,6 +45,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onAdd(view: View){
+        startActivity(Intent(this, NewEventView::class.java))
+    }
+
+    fun onSearch(view: View){
         startActivity(Intent(this, SearchResultView::class.java))
     }
 }
