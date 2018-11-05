@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.Menu
@@ -64,6 +65,8 @@ class SearchResultView : SearchResult.View, AppCompatActivity() {
     }
 
     override fun showUsers(users: List<User>){
+        user_recyclers.addItemDecoration(DividerItemDecoration(user_recyclers.context, DividerItemDecoration.VERTICAL))
+
         user_recyclers.adapter = SearchResultAdapter(users)
         user_recyclers.layoutManager = LinearLayoutManager(this)
     }
