@@ -13,6 +13,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+
+        buildConfigField "String", "SHARED_PREFERENCES_CONFIG_NAME", "\"SH_PREF_NAME\""
     }
     buildTypes {
         release {

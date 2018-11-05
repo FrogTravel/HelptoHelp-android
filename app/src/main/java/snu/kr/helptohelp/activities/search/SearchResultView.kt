@@ -3,19 +3,23 @@ package snu.kr.helptohelp.activities.search
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_search.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.model.SearchQuery
 import snu.kr.helptohelp.model.User
 import snu.kr.helptohelp.activities.filterSearch.FilterSearchView
+import snu.kr.helptohelp.activities.profile.UserProfileView
 import snu.kr.helptohelp.activities.search.util.SearchResultAdapter
 
-class SearchResultView : SearchResult.View, Activity() {
+class SearchResultView : SearchResult.View, AppCompatActivity() {
     companion object {
-        val EXtRA_USER_ID = "user_id"
+        val EXTRA_USER_ID = "user_id"
     }
     lateinit var presenter: SearchResultPresenter
     val SEARCH_PEOPLE = 1
@@ -26,6 +30,19 @@ class SearchResultView : SearchResult.View, Activity() {
         setContentView(R.layout.activity_search)
 
         presenter = SearchResultPresenter(this)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val menuInflater = menuInflater
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId){
+            R.id.action_profile -> startActivity(Intent(this, UserProfileView::class.java))
+        }
+        return true
     }
 
     fun onSearchButton(view: View){
@@ -50,4 +67,6 @@ class SearchResultView : SearchResult.View, Activity() {
         user_recyclers.adapter = SearchResultAdapter(users)
         user_recyclers.layoutManager = LinearLayoutManager(this)
     }
+
+
 }

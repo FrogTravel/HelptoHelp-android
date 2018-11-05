@@ -35,6 +35,7 @@ class FragmentReviews : Fragment() {
         review_recycler_view.layoutManager = LinearLayoutManager(this.context)
 
     }
+
+    data class ReviewList(val reviewList: List<Review>) : Serializable
 }
 
-data class ReviewList(val reviewList: List<Review>) : Serializable

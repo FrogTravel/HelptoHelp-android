@@ -8,7 +8,7 @@ class UserPagePresenter(val view: UserPage.View): UserPage.Presenter{
     }
 
     fun loadDataForUser(id: Int){
-        view.showUser(API.getUser(id))
+        view.showUser(API.getUserProfileData(id))
     }
 
 }

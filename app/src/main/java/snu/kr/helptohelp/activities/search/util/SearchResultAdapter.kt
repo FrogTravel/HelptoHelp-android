@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import kotlinx.android.synthetic.main.user_search_card.view.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.glideUtil.GlideApp
@@ -26,13 +26,14 @@ class SearchResultAdapter(val users: List<User>) : RecyclerView.Adapter<SearchRe
         val user = users[id]
 
         val intent =  Intent(viewHolder.view.context, UserPageView::class.java)
-        intent.putExtra(SearchResultView.EXtRA_USER_ID, user.id)
+        intent.putExtra(SearchResultView.EXTRA_USER_ID, user.id)
         viewHolder.view.setOnClickListener { startActivity(viewHolder.view.context, intent, null) }
 
         viewHolder.view.user_name.text = user.name
         GlideApp.with(viewHolder.view)
                 .load(user.imageURL)
-                .placeholder(R.drawable.ic_search)
+                .transform( CircleCrop())
+                .override(200,200)
                 .into(viewHolder.view.user_image)
     }
 

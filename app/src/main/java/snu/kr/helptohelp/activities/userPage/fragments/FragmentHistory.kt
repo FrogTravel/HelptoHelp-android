@@ -32,7 +32,9 @@ class FragmentHistory : Fragment() {
         history_recycler_view.adapter = UserHistoryAdapter((arguments?.getSerializable(HISTORY_ARG) as HistoryList).historyList)
         history_recycler_view.layoutManager = LinearLayoutManager(this.context)
     }
+
+    data class HistoryList(val historyList: List<History>) : Serializable
+
 }
 
-data class HistoryList(val historyList: List<History>) : Serializable
 
