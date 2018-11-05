@@ -20,6 +20,7 @@
         <activity android:name="snu.kr.helptohelp.activities.filterSearch.FilterSearchView"/>
         <activity android:name=".activities.userPage.UserPageView"/>
         <activity android:name=".activities.profile.UserProfileView"/>
+        <activity android:name=".activities.event.EventPageView"/>
     </application>
 
 </manifest>

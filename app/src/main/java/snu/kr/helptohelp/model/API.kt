@@ -12,11 +12,11 @@ class API{
         val review1 = Review("review1", user1, 5)
         val review2 = Review("review2", user2, 5)
 
-        val futureEvent1 = Event(user1, "future event1", "desc Event1", "Seoul")
-        val futureEvent2 = Event(user1, "future event2", "desc Event2", "Seoul")
+        val futureEvent1 = Event(0, user1, "future event1", "desc Event1", "Seoul")
+        val futureEvent2 = Event(1, user1, "future event2", "desc Event2", "Seoul")
 
-        val pastEvent1 = Event(user1, "past event1", "desc Event1", "Seoul")
-        val pastEvent2 = Event(user1, "past event2", "desc Event2", "Seoul")
+        val pastEvent1 = Event(2, user1, "past event1", "desc Event1", "Seoul")
+        val pastEvent2 = Event(3, user1, "past event2", "desc Event2", "Seoul")
 
 
         fun getUserProfileData(searchQuery: SearchQuery) : List<UserProfileData> =  listOf(UserProfileData(user1,
@@ -38,5 +38,7 @@ class API{
         fun getFutureEventsForUsers(id: Int) = listOf(futureEvent1, futureEvent2)
 
         fun getPastEventsForUsers(id: Int) = listOf(pastEvent1, pastEvent2)
+
+        fun getEvent(id: Int) = futureEvent1
     }
 }
