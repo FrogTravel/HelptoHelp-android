@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.history_card.view.*
 import snu.kr.helptohelp.R
+import snu.kr.helptohelp.model.Event
 import snu.kr.helptohelp.model.History
 
-class UserHistoryAdapter(val histories: List<History>) : RecyclerView.Adapter<UserHistoryAdapter.ViewHolder>() {
+class UserHistoryAdapter(val histories: List<Event>) : RecyclerView.Adapter<UserHistoryAdapter.ViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.history_card, null))
     }
@@ -16,8 +17,8 @@ class UserHistoryAdapter(val histories: List<History>) : RecyclerView.Adapter<Us
     override fun getItemCount() = histories.count()
 
     override fun onBindViewHolder(viewHolder: ViewHolder, id: Int){
-        viewHolder.view.name_text_view.text = histories[id].name
-        viewHolder.view.grade_text_view.text = histories[id].grade.toString()
+        viewHolder.view.name_text_view.text = histories[id].title
+        viewHolder.view.description_text_view.text = histories[id].description
     }
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)

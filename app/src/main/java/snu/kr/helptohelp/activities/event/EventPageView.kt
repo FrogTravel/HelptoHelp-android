@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_event.*
 import snu.kr.helptohelp.R
+import snu.kr.helptohelp.activities.glideUtil.GlideApp
 import snu.kr.helptohelp.model.Event
 
 class EventPageView : EventPage.View, AppCompatActivity() {
@@ -19,6 +20,8 @@ class EventPageView : EventPage.View, AppCompatActivity() {
 
         presenter = EventPagePresenter(this)
         presenter.setEventId(intent.getIntExtra(EventPagePresenter.EVENT_ID, -1))
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -31,6 +34,10 @@ class EventPageView : EventPage.View, AppCompatActivity() {
     override fun showEvent(event: Event) {
         event_name.text = event.title
         event_description.text = event.description
+
+        GlideApp.with(this)
+                .load("http://www.organizedtransitionsllc.com/wp-content/uploads/2016/07/Food-Groceyr.jpg")//TODO hardcoded image
+                .into(cuisine_image)
     }
 
 

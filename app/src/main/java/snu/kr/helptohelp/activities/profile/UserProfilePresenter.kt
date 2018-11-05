@@ -11,7 +11,8 @@ class UserProfilePresenter(val view: UserProfile.View) : UserProfile.Presenter{
 
     init{
         val sharedPreferencesHelper = SharedPreferencesHelper(view.getContext())
-        user = API.getUser(sharedPreferencesHelper.readUserId())
+        //user = API.getUser(sharedPreferencesHelper.readUserId())
+        user = API.getUser(4)
 
         view.showUser(user)
     }

@@ -2,6 +2,7 @@ package snu.kr.helptohelp.activities.userPage
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.MenuItem
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import kotlinx.android.synthetic.main.activity_user.*
@@ -28,7 +29,7 @@ class UserPageView : UserPage.View, AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when(item?.itemId){
+        when (item?.itemId) {
             android.R.id.home -> this.finish()
         }
         return true
@@ -42,6 +43,7 @@ class UserPageView : UserPage.View, AppCompatActivity() {
                 .into(user_image)
 
         user_name.text = userProfileData.user.name
+        description_text_view.text = userProfileData.user.description
 
         val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
 

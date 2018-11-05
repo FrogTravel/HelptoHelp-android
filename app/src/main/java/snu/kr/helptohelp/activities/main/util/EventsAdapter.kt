@@ -23,6 +23,7 @@ class EventsAdapter(val events: List<Event>) : RecyclerView.Adapter<EventsAdapte
         val event = events[id]
         viewHolder.view.event_name.text = event.title
         viewHolder.view.event_description.text = event.description
+        viewHolder.view.address_text_view.text = event.location
 
         val intent = Intent(viewHolder.view.context, EventPageView::class.java)
         intent.putExtra(EventPagePresenter.EVENT_ID, event.id)

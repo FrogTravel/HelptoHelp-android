@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_history.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.userPage.util.UserHistoryAdapter
+import snu.kr.helptohelp.model.Event
 import snu.kr.helptohelp.model.History
 import java.io.Serializable
 
@@ -33,7 +34,7 @@ class FragmentHistory : Fragment() {
         history_recycler_view.layoutManager = LinearLayoutManager(this.context)
     }
 
-    data class HistoryList(val historyList: List<History>) : Serializable
+    data class HistoryList(val historyList: List<Event>) : Serializable
 
 }
 

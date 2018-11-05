@@ -19,6 +19,7 @@ class UserReviewsAdapter(val reviews: List<Review>) : RecyclerView.Adapter<UserR
 
     override fun onBindViewHolder(viewHolder: ViewHolder, id: Int) {
         val review = reviews[id]
+        viewHolder.view.user_name.text = review.user.name
         viewHolder.view.review_text_view.text = review.reviewText
 
         GlideApp.with(viewHolder.view)

@@ -15,6 +15,7 @@ import snu.kr.helptohelp.R
 import snu.kr.helptohelp.model.SearchQuery
 import snu.kr.helptohelp.model.User
 import snu.kr.helptohelp.activities.filterSearch.FilterSearchView
+import snu.kr.helptohelp.activities.profile.UserProfilePresenter
 import snu.kr.helptohelp.activities.profile.UserProfileView
 import snu.kr.helptohelp.activities.search.util.SearchResultAdapter
 
@@ -22,6 +23,7 @@ class SearchResultView : SearchResult.View, AppCompatActivity() {
     companion object {
         val EXTRA_USER_ID = "user_id"
     }
+
     lateinit var presenter: SearchResultPresenter
     val SEARCH_PEOPLE = 1
 
@@ -29,9 +31,13 @@ class SearchResultView : SearchResult.View, AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_search)
+        startActivityForResult(Intent(this, FilterSearchView::class.java), SEARCH_PEOPLE)
 
         presenter = SearchResultPresenter(this)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val menuInflater = menuInflater
@@ -40,13 +46,16 @@ class SearchResultView : SearchResult.View, AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId){
-            R.id.action_profile -> startActivity(Intent(this, UserProfileView::class.java))
+        when (item?.itemId) {
+            R.id.action_profile -> {
+                startActivity(Intent(this, UserProfileView::class.java))
+            }
+            android.R.id.home -> this.finish()
         }
         return true
     }
 
-    fun onSearchButton(view: View){
+    fun onSearchButton(view: View) {
         presenter.onSearchButton()
     }
 
@@ -64,7 +73,7 @@ class SearchResultView : SearchResult.View, AppCompatActivity() {
         }
     }
 
-    override fun showUsers(users: List<User>){
+    override fun showUsers(users: List<User>) {
         user_recyclers.addItemDecoration(DividerItemDecoration(user_recyclers.context, DividerItemDecoration.VERTICAL))
 
         user_recyclers.adapter = SearchResultAdapter(users)

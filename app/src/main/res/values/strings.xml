@@ -2,4 +2,8 @@
     <string name="app_name">Help to Help</string>
     <string name="food_name_search">Food name</string>
     <string name="add_event">Add Event</string>
+    <string name="search_event">Search Event</string>
+    <string name="event_name">Event Name</string>
+    <string name="event_description">Description</string>
+    <string name="event_food_type">Food Type Tags</string>
 </resources>

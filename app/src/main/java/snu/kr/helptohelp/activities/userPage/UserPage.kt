@@ -5,7 +5,7 @@ import snu.kr.helptohelp.model.UserProfileData
 
 interface UserPage {
     interface View {
-        fun showUser(user: UserProfileData)
+        fun showUser(userProfileData: UserProfileData)
     }
 
     interface Presenter {
