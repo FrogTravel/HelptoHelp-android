@@ -4,14 +4,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.history_card.view.*
+import kotlinx.android.synthetic.main.card_history.view.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.model.Event
-import snu.kr.helptohelp.model.History
 
 class UserHistoryAdapter(val histories: List<Event>) : RecyclerView.Adapter<UserHistoryAdapter.ViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.history_card, null))
+        return ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.card_history, null))
     }
 
     override fun getItemCount() = histories.count()

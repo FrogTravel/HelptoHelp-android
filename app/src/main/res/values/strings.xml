@@ -7,4 +7,13 @@
     <string name="event_description">Description</string>
     <string name="event_food_type">Food Type Tags</string>
     <string name="error_search">Sorry, we did not found anything</string>
+    <string name="login_hint">Login</string>
+    <string name="password_hint">Password</string>
+    <string name="login_enter">Login</string>
+    <string name="password_error">Wrong password!</string>
+    <string name="login_error">You are not registered!</string>
+    <string name="password_again">Password (again)</string>
+    <string name="register_finish">Register</string>
+    <string name="first_name_hint">Your name</string>
+    <string name="register_start">Register</string>
 </resources>

@@ -2,7 +2,9 @@ package snu.kr.helptohelp.model
 
 import java.util.*
 
-class APIPseudo{
+class APIPseudo {
+
+
     companion object {
         val user1 = User(0, "Patrick G. Vazquez", "Aboul1964", 19,
                 "Able an hope of body. Any nay shyness article matters own removal nothing his forming",
@@ -42,16 +44,16 @@ class APIPseudo{
 
         val eventList = arrayListOf<Event>()
 
-        fun getUserProfileData(searchQuery: SearchQuery) : List<UserProfileData> =
+        fun getUserProfileData(searchQuery: SearchQuery): List<UserProfileData> =
                 listOf(UserProfileData(userList[Random().nextInt(userList.size)],
-                    reviews = listOf(review1),
-                    history = listOf(futureEvent1, futureEvent2)),
-                UserProfileData(userList[Random().nextInt(userList.size)],
-                        reviews = listOf(review1, review2),
-                        history = listOf(futureEvent1, futureEvent1)))
+                        reviews = listOf(review1),
+                        history = listOf(futureEvent1, futureEvent2)),
+                        UserProfileData(userList[Random().nextInt(userList.size)],
+                                reviews = listOf(review1, review2),
+                                history = listOf(futureEvent1, futureEvent1)))
 
 
-        fun getUsers(searchQuery: SearchQuery) : List<User> = userList
+        fun getUsers(searchQuery: SearchQuery): List<User> = userList
 
         fun getUser(id: Int) = userList[id]
 
@@ -67,10 +69,16 @@ class APIPseudo{
 
         fun getCurrentUser() = user1
 
-        fun addEvent(event: Event){
+        fun addEvent(event: Event) {
             eventList.add(event)
         }
 
         fun searchEvent(searchQuery: SearchQuery) = getPastEventsForUsers(0)
+
+        fun isRegistered(login: String) = true
+
+        fun isRightPassword(login: String, password: String) = true
+
+        fun register(login: String, firstPassword: String, name: String) = true
     }
 }

@@ -15,7 +15,7 @@ import snu.kr.helptohelp.activities.personalPage.PersonalPageView
 import snu.kr.helptohelp.activities.searchResult.SearchResultView
 import snu.kr.helptohelp.activities.userPage.util.ViewPagerAdapter
 
-class MainActivity : AppCompatActivity() {
+class MyEventsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

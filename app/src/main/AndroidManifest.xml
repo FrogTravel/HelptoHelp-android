@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.main.MainActivity">
+        <activity android:name=".activities.base.BaseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.main.MyEventsActivity"/>
         <activity android:name="snu.kr.helptohelp.activities.searchResult.SearchResultView"/>
         <activity android:name="snu.kr.helptohelp.activities.search.SearchView"/>
         <activity android:name=".activities.userPage.UserPageView"/>
@@ -23,6 +24,7 @@
         <activity android:name=".activities.event.EventPageView"/>
         <activity android:name=".activities.addEvent.AddEventView"/>
         <activity android:name=".activities.login.LoginView"/>
+        <activity android:name=".activities.registration.RegistrationView"/>
     </application>
 
 </manifest>
