@@ -1,4 +1,4 @@
-package snu.kr.helptohelp.activities.newEvent
+package snu.kr.helptohelp.activities.addEvent
 
 import android.app.Activity
 import android.os.Bundle
@@ -6,13 +6,13 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_create_event.*
 import snu.kr.helptohelp.R
 
-class NewEventView : NewEvent.View, Activity() {
-    lateinit var presenter: NewEvent.Presenter
+class AddEventView : AddEvent.View, Activity() {
+    lateinit var presenter: AddEvent.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_event)
-        presenter = NewEventPresenter(this)
+        presenter = AddEventPresenter(this)
     }
 
     fun onAddEvent(view: View){

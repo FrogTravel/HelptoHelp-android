@@ -4,6 +4,8 @@
     <color name="colorPrimary">#4CAF50</color>
     <color name="colorPrimaryDark">#388E3C</color>
     <color name="colorAccent">#FFC107</color>
+    <color name="pseudoWhite">#f9f9f9</color>
     <color name="textColor">#353535</color>
     <color name="textSecondaryColor">#606060</color>
+    <color name="dividerColor">#d6d6d6</color>
 </resources>

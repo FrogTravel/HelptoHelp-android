@@ -1,10 +1,10 @@
 
-package snu.kr.helptohelp.activities.profile
+package snu.kr.helptohelp.activities.personalPage
 
 import android.content.Context
 import snu.kr.helptohelp.model.User
 
-interface UserProfile {
+interface PersonalPage {
     interface View {
         fun getContext() : Context
         fun showUser(user: User)

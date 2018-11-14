@@ -1,28 +1,23 @@
-package snu.kr.helptohelp.activities.search
+package snu.kr.helptohelp.activities.searchResult
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_search.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.model.SearchQuery
-import snu.kr.helptohelp.model.User
-import snu.kr.helptohelp.activities.filterSearch.FilterSearchView
-import snu.kr.helptohelp.activities.profile.UserProfilePresenter
-import snu.kr.helptohelp.activities.profile.UserProfileView
-import snu.kr.helptohelp.activities.search.util.SearchResultAdapter
+import snu.kr.helptohelp.activities.search.SearchView
+import snu.kr.helptohelp.activities.personalPage.PersonalPageView
+import snu.kr.helptohelp.activities.searchResult.util.SearchResultAdapter
+import snu.kr.helptohelp.model.Event
 
 class SearchResultView : SearchResult.View, AppCompatActivity() {
-    companion object {
-        val EXTRA_USER_ID = "user_id"
-    }
+
 
     lateinit var presenter: SearchResultPresenter
     val SEARCH_PEOPLE = 1
@@ -31,7 +26,7 @@ class SearchResultView : SearchResult.View, AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_search)
-        startActivityForResult(Intent(this, FilterSearchView::class.java), SEARCH_PEOPLE)
+        startActivityForResult(Intent(this, SearchView::class.java), SEARCH_PEOPLE)
 
         presenter = SearchResultPresenter(this)
 
@@ -48,7 +43,7 @@ class SearchResultView : SearchResult.View, AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.action_profile -> {
-                startActivity(Intent(this, UserProfileView::class.java))
+                startActivity(Intent(this, PersonalPageView::class.java))
             }
             android.R.id.home -> this.finish()
         }
@@ -60,7 +55,7 @@ class SearchResultView : SearchResult.View, AppCompatActivity() {
     }
 
     override fun searchForPeople() {
-        startActivityForResult(Intent(this, FilterSearchView::class.java), SEARCH_PEOPLE)
+        startActivityForResult(Intent(this, SearchView::class.java), SEARCH_PEOPLE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -68,16 +63,21 @@ class SearchResultView : SearchResult.View, AppCompatActivity() {
 
         if (requestCode == SEARCH_PEOPLE) {
             if (resultCode == Activity.RESULT_OK) {
-                presenter.setSearchQuery(data?.getSerializableExtra(FilterSearchView.RESULT_NAME) as SearchQuery)
+                presenter.setSearchQuery(data?.getSerializableExtra(SearchView.RESULT_NAME) as SearchQuery)
             }
         }
     }
 
-    override fun showUsers(users: List<User>) {
-        user_recyclers.addItemDecoration(DividerItemDecoration(user_recyclers.context, DividerItemDecoration.VERTICAL))
+    override fun showResults(events: List<Event>) {
 
-        user_recyclers.adapter = SearchResultAdapter(users)
-        user_recyclers.layoutManager = LinearLayoutManager(this)
+        result_recyclers.adapter = SearchResultAdapter(events)
+        result_recyclers.layoutManager = LinearLayoutManager(this)
+
+        error.visibility = View.GONE
+    }
+
+    override fun showError() {
+        error.text = resources.getString(R.string.error_search)
     }
 
 

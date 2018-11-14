@@ -10,9 +10,9 @@ import kotlinx.android.synthetic.main.activity_user.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.main.fragments.FutureEventsFragment
 import snu.kr.helptohelp.activities.main.fragments.PastEventsFragment
-import snu.kr.helptohelp.activities.newEvent.NewEventView
-import snu.kr.helptohelp.activities.profile.UserProfileView
-import snu.kr.helptohelp.activities.search.SearchResultView
+import snu.kr.helptohelp.activities.addEvent.AddEventView
+import snu.kr.helptohelp.activities.personalPage.PersonalPageView
+import snu.kr.helptohelp.activities.searchResult.SearchResultView
 import snu.kr.helptohelp.activities.userPage.util.ViewPagerAdapter
 
 class MainActivity : AppCompatActivity() {
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId){
-            R.id.action_profile -> startActivity(Intent(this, UserProfileView::class.java))
+            R.id.action_profile -> startActivity(Intent(this, PersonalPageView::class.java))
         }
         return true
     }
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onAdd(view: View){
-        startActivity(Intent(this, NewEventView::class.java))
+        startActivity(Intent(this, AddEventView::class.java))
     }
 
     fun onSearch(view: View){

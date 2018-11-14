@@ -1,6 +1,6 @@
 package snu.kr.helptohelp.activities.userPage
 
-import snu.kr.helptohelp.model.API
+import snu.kr.helptohelp.model.APIPseudo
 
 class UserPagePresenter(val view: UserPage.View): UserPage.Presenter{
     override fun setUserId(id: Int) {
@@ -8,7 +8,7 @@ class UserPagePresenter(val view: UserPage.View): UserPage.Presenter{
     }
 
     fun loadDataForUser(id: Int){
-        view.showUser(API.getUserProfileData(id))
+        view.showUser(APIPseudo.getUserProfileData(id))
     }
 
 }

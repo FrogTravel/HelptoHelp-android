@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_past_event.view.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.main.util.EventsAdapter
-import snu.kr.helptohelp.model.API
+import snu.kr.helptohelp.model.APIPseudo
 
 class PastEventsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +19,7 @@ class PastEventsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_past_event, container, false)
-        view.recycler_view.adapter = EventsAdapter(API.getPastEventsForUsers(0))
+        view.recycler_view.adapter = EventsAdapter(APIPseudo.getPastEventsForUsers(0))
         view.recycler_view.layoutManager = LinearLayoutManager(view.context)
         return view
     }

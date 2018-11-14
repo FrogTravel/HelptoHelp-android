@@ -1,18 +1,18 @@
-package snu.kr.helptohelp.activities.profile
+package snu.kr.helptohelp.activities.personalPage
 
-import snu.kr.helptohelp.model.API
+import snu.kr.helptohelp.model.APIPseudo
 import snu.kr.helptohelp.model.User
 import snu.kr.helptohelp.util.SharedPreferencesHelper
 
-class UserProfilePresenter(val view: UserProfile.View) : UserProfile.Presenter{
+class PersonalPagePresenter(val view: PersonalPage.View) : PersonalPage.Presenter{
     val userId = -1
     val user : User
     var isEditMode = false
 
     init{
         val sharedPreferencesHelper = SharedPreferencesHelper(view.getContext())
-        //user = API.getUser(sharedPreferencesHelper.readUserId())
-        user = API.getUser(4)
+        //user = APIPseudo.getUser(sharedPreferencesHelper.readUserId())
+        user = APIPseudo.getUser(4)
 
         view.showUser(user)
     }

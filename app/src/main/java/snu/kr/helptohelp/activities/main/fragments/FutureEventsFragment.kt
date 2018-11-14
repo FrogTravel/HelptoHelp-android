@@ -7,13 +7,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import kotlinx.android.synthetic.main.fragment_future_events.*
 import kotlinx.android.synthetic.main.fragment_future_events.view.*
-import kotlinx.android.synthetic.main.fragment_past_event.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.main.util.EventsAdapter
-import snu.kr.helptohelp.model.API
+import snu.kr.helptohelp.model.APIPseudo
 
 class FutureEventsFragment : Fragment() {
     lateinit var adapter: EventsAdapter
@@ -24,7 +21,7 @@ class FutureEventsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_future_events, container, false)
-        adapter = EventsAdapter(API.getFutureEventsForUsers(0))
+        adapter = EventsAdapter(APIPseudo.getFutureEventsForUsers(0))
         view.recycler_view_future.adapter = adapter
         view.recycler_view_future.layoutManager = LinearLayoutManager(view.context)
         return view
@@ -32,7 +29,7 @@ class FutureEventsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Log.d("ADDDEB", "OnResume ${API.getFutureEventsForUsers(0)}")
+        Log.d("ADDDEB", "OnResume ${APIPseudo.getFutureEventsForUsers(0)}")
         adapter.notifyDataSetChanged()
     }
 }

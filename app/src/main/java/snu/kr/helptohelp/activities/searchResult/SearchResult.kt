@@ -1,12 +1,13 @@
-package snu.kr.helptohelp.activities.search
+package snu.kr.helptohelp.activities.searchResult
 
+import snu.kr.helptohelp.model.Event
 import snu.kr.helptohelp.model.SearchQuery
-import snu.kr.helptohelp.model.User
 
 interface SearchResult {
     interface View {
         fun searchForPeople()
-        fun showUsers(users: List<User>)
+        fun showResults(events: List<Event>)
+        fun showError()
     }
 
     interface Presenter {

@@ -1,4 +1,4 @@
-package snu.kr.helptohelp.activities.profile
+package snu.kr.helptohelp.activities.personalPage
 
 import android.app.Activity
 import android.os.Bundle
@@ -11,15 +11,15 @@ import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.glideUtil.GlideApp
 import snu.kr.helptohelp.model.User
 
-class UserProfileView : UserProfile.View, Activity() {
-    lateinit var presenter: UserProfile.Presenter
+class PersonalPageView : PersonalPage.View, Activity() {
+    lateinit var presenter: PersonalPage.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_profile)
 
-        presenter = UserProfilePresenter(this)
+        presenter = PersonalPagePresenter(this)
     }
 
     override fun getContext() = this

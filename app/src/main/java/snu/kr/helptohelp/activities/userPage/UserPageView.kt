@@ -2,17 +2,14 @@ package snu.kr.helptohelp.activities.userPage
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.MenuItem
-import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import kotlinx.android.synthetic.main.activity_user.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.glideUtil.GlideApp
-import snu.kr.helptohelp.activities.search.SearchResultView
 import snu.kr.helptohelp.activities.userPage.fragments.FragmentHistory
 import snu.kr.helptohelp.activities.userPage.fragments.FragmentReviews
+import snu.kr.helptohelp.activities.userPage.fragments.FragmentUser
 import snu.kr.helptohelp.activities.userPage.util.ViewPagerAdapter
-import snu.kr.helptohelp.model.User
 import snu.kr.helptohelp.model.UserProfileData
 
 class UserPageView : UserPage.View, AppCompatActivity() {
@@ -25,7 +22,7 @@ class UserPageView : UserPage.View, AppCompatActivity() {
         presenter = UserPagePresenter(this)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        presenter.setUserId(intent.getIntExtra(SearchResultView.EXTRA_USER_ID, -1))
+        presenter.setUserId(intent.getIntExtra(UserPage.EXTRA_USER_ID, -1))
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -38,14 +35,16 @@ class UserPageView : UserPage.View, AppCompatActivity() {
     override fun showUser(userProfileData: UserProfileData) {
         GlideApp.with(this)
                 .load(userProfileData.user.imageURL)
-                .transform(CircleCrop())
-                .override(400, 400)
                 .into(user_image)
-
-        user_name.text = userProfileData.user.name
-        description_text_view.text = userProfileData.user.description
-
         val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
+
+        val fragmentUser = FragmentUser()
+        val userArgs = Bundle()
+        //TODO Может можно переделать user в Serializable, но я боюсь из-за retrofit. Потом проверить!
+        userArgs.putSerializable(FragmentUser.USER_NAME, userProfileData.user.name)
+        userArgs.putSerializable(FragmentUser.USER_DESC, userProfileData.user.description)
+        fragmentUser.arguments = userArgs
+        viewPagerAdapter.addFragment(fragmentUser, "Overview")
 
         val fragmentReviews = FragmentReviews()
         val reviewArgs = Bundle()

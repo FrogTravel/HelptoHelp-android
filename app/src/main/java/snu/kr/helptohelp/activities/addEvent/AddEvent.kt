@@ -1,6 +1,6 @@
-package snu.kr.helptohelp.activities.newEvent
+package snu.kr.helptohelp.activities.addEvent
 
-interface NewEvent {
+interface AddEvent {
     interface View {
         fun getEventTitle() : String
         fun getDescription() : String

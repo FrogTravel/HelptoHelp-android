@@ -16,12 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="snu.kr.helptohelp.activities.search.SearchResultView"/>
-        <activity android:name="snu.kr.helptohelp.activities.filterSearch.FilterSearchView"/>
+        <activity android:name="snu.kr.helptohelp.activities.searchResult.SearchResultView"/>
+        <activity android:name="snu.kr.helptohelp.activities.search.SearchView"/>
         <activity android:name=".activities.userPage.UserPageView"/>
-        <activity android:name=".activities.profile.UserProfileView"/>
+        <activity android:name=".activities.personalPage.PersonalPageView"/>
         <activity android:name=".activities.event.EventPageView"/>
-        <activity android:name=".activities.newEvent.NewEventView"/>
+        <activity android:name=".activities.addEvent.AddEventView"/>
+        <activity android:name=".activities.login.LoginView"/>
     </application>
 
 </manifest>
