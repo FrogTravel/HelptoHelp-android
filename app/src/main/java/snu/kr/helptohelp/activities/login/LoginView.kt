@@ -9,6 +9,8 @@ import snu.kr.helptohelp.R
 import snu.kr.helptohelp.util.SharedPreferencesHelper
 import android.widget.Toast
 import android.R.attr.data
+import android.app.Activity
+import android.content.ComponentName
 import android.content.Intent
 import snu.kr.helptohelp.activities.main.MyEventsActivity
 import snu.kr.helptohelp.activities.personalPage.PersonalPageView
@@ -17,6 +19,7 @@ import snu.kr.helptohelp.activities.registration.RegistrationView
 
 class LoginView: Login.View, AppCompatActivity(){
     lateinit var presenter: Login.Presenter
+    private val RESULT_CODE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +53,17 @@ class LoginView: Login.View, AppCompatActivity(){
     }
 
     fun onRegister(view: View){
-        startActivity(Intent(this, RegistrationView::class.java))
+        startActivityForResult(Intent(this, RegistrationView::class.java), RESULT_CODE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == RESULT_CODE){
+            if(resultCode == Activity.RESULT_OK){
+                this.finish()
+            }
+        }
     }
 
 }

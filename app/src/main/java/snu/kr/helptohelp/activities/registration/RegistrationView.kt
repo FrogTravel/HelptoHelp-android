@@ -33,6 +33,8 @@ class RegistrationView : Registration.View, Activity() {
     override fun getSecondPassword() = password_again.text.toString()
 
     override fun startMyEventsActivity() {
+        setResult(Activity.RESULT_OK)
+
         this.finish()
         startActivity(Intent(this, MyEventsActivity::class.java))
     }

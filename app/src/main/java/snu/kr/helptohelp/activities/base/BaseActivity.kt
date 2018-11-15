@@ -21,5 +21,7 @@ class BaseActivity : AppCompatActivity(){
         }else{
             startActivity(Intent(this, MyEventsActivity::class.java))
         }
+
+        this.finish()
     }
 }
