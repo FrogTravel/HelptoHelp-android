@@ -17,8 +17,6 @@ import snu.kr.helptohelp.activities.searchResult.util.SearchResultAdapter
 import snu.kr.helptohelp.model.Event
 
 class SearchResultView : SearchResult.View, AppCompatActivity() {
-
-
     lateinit var presenter: SearchResultPresenter
     val SEARCH_PEOPLE = 1
 
