@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.main.MyEventsActivity"/>
+        <activity android:name=".activities.myEvents.MyEventsActivity"/>
         <activity android:name="snu.kr.helptohelp.activities.searchResult.SearchResultView"/>
         <activity android:name="snu.kr.helptohelp.activities.search.SearchView"/>
         <activity android:name=".activities.userPage.UserPageView"/>

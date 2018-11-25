@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import snu.kr.helptohelp.activities.login.LoginView
-import snu.kr.helptohelp.activities.main.MyEventsActivity
+import snu.kr.helptohelp.activities.myEvents.MyEventsActivity
 import snu.kr.helptohelp.util.SharedPreferencesHelper
 
 /**
@@ -16,11 +16,11 @@ class BaseActivity : AppCompatActivity(){
 
         val userId = SharedPreferencesHelper(this).readUserId()
 
-        if(userId == -1){//If there is no ID
-            startActivity(Intent(this, LoginView::class.java))
-        }else{
+      //  if(userId == -1){//If there is no ID
+      //      startActivity(Intent(this, LoginView::class.java))
+      //  }else{
             startActivity(Intent(this, MyEventsActivity::class.java))
-        }
+      //  }
 
         this.finish()
     }

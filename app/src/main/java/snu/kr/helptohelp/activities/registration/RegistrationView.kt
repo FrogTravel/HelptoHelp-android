@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_registration.*
 import snu.kr.helptohelp.R
-import snu.kr.helptohelp.activities.main.MyEventsActivity
+import snu.kr.helptohelp.activities.myEvents.MyEventsActivity
 
 
 class RegistrationView : Registration.View, Activity() {

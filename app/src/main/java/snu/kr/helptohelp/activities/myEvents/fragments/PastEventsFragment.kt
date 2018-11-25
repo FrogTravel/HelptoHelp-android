@@ -1,4 +1,4 @@
-package snu.kr.helptohelp.activities.main.fragments
+package snu.kr.helptohelp.activities.myEvents.fragments
 
 
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_past_event.view.*
 import snu.kr.helptohelp.R
-import snu.kr.helptohelp.activities.main.util.EventsAdapter
+import snu.kr.helptohelp.activities.myEvents.util.EventsAdapter
 import snu.kr.helptohelp.model.APIPseudo
 
 class PastEventsFragment : Fragment() {

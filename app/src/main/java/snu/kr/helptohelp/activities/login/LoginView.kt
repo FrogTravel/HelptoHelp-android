@@ -1,19 +1,14 @@
 package snu.kr.helptohelp.activities.login
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import kotlinx.android.synthetic.main.activity_login.*
 import snu.kr.helptohelp.R
-import snu.kr.helptohelp.util.SharedPreferencesHelper
 import android.widget.Toast
-import android.R.attr.data
 import android.app.Activity
-import android.content.ComponentName
 import android.content.Intent
-import snu.kr.helptohelp.activities.main.MyEventsActivity
-import snu.kr.helptohelp.activities.personalPage.PersonalPageView
+import snu.kr.helptohelp.activities.myEvents.MyEventsActivity
 import snu.kr.helptohelp.activities.registration.RegistrationView
 
 

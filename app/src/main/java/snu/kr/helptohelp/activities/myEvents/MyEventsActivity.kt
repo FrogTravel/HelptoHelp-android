@@ -1,4 +1,4 @@
-package snu.kr.helptohelp.activities.main
+package snu.kr.helptohelp.activities.myEvents
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -8,8 +8,8 @@ import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_user.*
 import snu.kr.helptohelp.R
-import snu.kr.helptohelp.activities.main.fragments.FutureEventsFragment
-import snu.kr.helptohelp.activities.main.fragments.PastEventsFragment
+import snu.kr.helptohelp.activities.myEvents.fragments.FutureEventsFragment
+import snu.kr.helptohelp.activities.myEvents.fragments.PastEventsFragment
 import snu.kr.helptohelp.activities.addEvent.AddEventView
 import snu.kr.helptohelp.activities.personalPage.PersonalPageView
 import snu.kr.helptohelp.activities.searchResult.SearchResultView

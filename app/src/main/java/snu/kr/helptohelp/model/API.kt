@@ -1,9 +1,8 @@
 package snu.kr.helptohelp.model
 
+import retrofit2.Call
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 import snu.kr.helptohelp.BuildConfig
 
 interface API{
@@ -16,6 +15,9 @@ interface API{
                     @Field("Longitude") lng: Float,
                     @Field("Latitude") lat: Float)
 
+
+    @GET("profiles/{id}")
+    fun getUser(@Path("id") id: Int) : Call<User>
 
     companion object Factory{
         fun create(): API{

@@ -1,4 +1,4 @@
-package snu.kr.helptohelp.activities.main.util
+package snu.kr.helptohelp.activities.myEvents.util
 
 import android.content.Intent
 import android.support.v4.content.ContextCompat.startActivity

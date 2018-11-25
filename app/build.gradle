@@ -16,7 +16,7 @@ android {
 
 
         buildConfigField "String", "SHARED_PREFERENCES_CONFIG_NAME", "\"SH_PREF_NAME\""
-        buildConfigField "String", "BASE_URL", "\"blabla.com\""
+        buildConfigField "String", "BASE_URL", "\"http://powerful-gorge-30428.herokuapp.com/api/v1/\""
     }
     buildTypes {
         release {
@@ -48,6 +48,9 @@ dependencies {
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation "com.squareup.retrofit2:converter-gson:2.4.0"
+
+    //Notification
+    implementation "com.android.support:support-compat:28.0.0"
 
 }
 
