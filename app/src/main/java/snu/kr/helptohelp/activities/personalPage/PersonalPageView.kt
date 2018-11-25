@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 import kotlinx.android.synthetic.main.activity_profile.*
@@ -26,9 +27,11 @@ class PersonalPageView : PersonalPage.View, Activity() {
 
     override fun showUser(user: User) {
         GlideApp.with(this)
-                .load(user.imageURL)
-                .transform( CircleCrop())
+                .load(user.profile_pic_url)
+                .placeholder(R.mipmap.ic_launcher)
                 .override(400,400)
+                .dontAnimate()//Some problem with placeholders in Glide
+                .circleCrop()
                 .into(user_image)
 
         user_name.text = user.name
@@ -60,7 +63,7 @@ class PersonalPageView : PersonalPage.View, Activity() {
 
     override fun showUserEdit(user: User) {
         GlideApp.with(this)
-                .load(user.imageURL)
+                .load(user.profile_pic_url)
                 .transform( CircleCrop())
                 .override(400,400)
                 .into(user_image_edit)

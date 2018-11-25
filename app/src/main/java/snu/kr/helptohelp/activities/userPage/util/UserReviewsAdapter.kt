@@ -23,7 +23,7 @@ class UserReviewsAdapter(val reviews: List<Review>) : RecyclerView.Adapter<UserR
         viewHolder.view.review_text_view.text = review.reviewText
 
         GlideApp.with(viewHolder.view)
-                .load(review.user.imageURL)
+                .load(review.user.profile_pic_url)
                 .transform( CircleCrop())
                 .override(100,100)
                 .into(viewHolder.view.user_image)

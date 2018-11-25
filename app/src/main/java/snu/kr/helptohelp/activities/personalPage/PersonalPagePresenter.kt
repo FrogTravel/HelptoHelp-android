@@ -1,10 +1,12 @@
 package snu.kr.helptohelp.activities.personalPage
 
+import android.util.Log
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import snu.kr.helptohelp.model.API
 import snu.kr.helptohelp.model.APIPseudo
+import snu.kr.helptohelp.model.Answer
 import snu.kr.helptohelp.model.User
 import snu.kr.helptohelp.util.SharedPreferencesHelper
 
@@ -12,23 +14,27 @@ class PersonalPagePresenter(val view: PersonalPage.View) : PersonalPage.Presente
     val userId = -1
     lateinit var user: User
     var isEditMode = false
-    val api = API.create()
+
 
     init {
         val sharedPreferencesHelper = SharedPreferencesHelper(view.getContext())
-        //user = APIPseudo.getUser(sharedPreferencesHelper.readUserId())
-        api.getUser(1).enqueue(object : Callback<User> {
+//        user = APIPseudo.getUser(1)
+//        view.showUser(user)
+        val api = API.create()
+        api.getUser(1).enqueue(object : Callback<Answer> {
 
-            override fun onResponse(call: Call<User>, response: Response<User>) {
-                user = response.body() ?: User(-1, "NULL", "NULL", -1, "NULL", isVerified = false)
+            override fun onResponse(call: Call<Answer>, response: Response<Answer>) {
+                val answer = response.body()
+                user = answer?.data?.profile ?: User(-1, "NULL", "NULL", -1, "NULL", isVerified = false)
+                view.showUser(user)
             }
 
-            override fun onFailure(call: Call<User>, t: Throwable) {
+            override fun onFailure(call: Call<Answer>, t: Throwable) {
                 t.printStackTrace()
             }
 
         })
-        view.showUser(user)
+
     }
 
     override fun onModeChange() {

@@ -33,7 +33,7 @@ class SearchResultAdapter(val events: List<Event>) : RecyclerView.Adapter<Search
 
         viewHolder.view.user_name.text = event.hostUser.name
         GlideApp.with(viewHolder.view.context)
-                .load(event.hostUser.imageURL)
+                .load(event.hostUser.profile_pic_url)
                 .transform(CircleCrop())
                 .override(100, 100)
                 .into(viewHolder.view.user_image)

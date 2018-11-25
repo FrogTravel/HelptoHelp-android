@@ -58,7 +58,7 @@ class EventPageView : EventPage.View, AppCompatActivity() {
 
         val userImageSize = (100 * scale + 0.5f).toInt()
         GlideApp.with(this)
-                .load(event.hostUser.imageURL)//TODO hardcoded image
+                .load(event.hostUser.profile_pic_url)//TODO hardcoded image
                 .override(userImageSize, userImageSize)
                 .circleCrop()
                 .into(user_image)

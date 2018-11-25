@@ -34,7 +34,7 @@ class UserPageView : UserPage.View, AppCompatActivity() {
 
     override fun showUser(userProfileData: UserProfileData) {
         GlideApp.with(this)
-                .load(userProfileData.user.imageURL)
+                .load(userProfileData.user.profile_pic_url)
                 .into(user_image)
         val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
 

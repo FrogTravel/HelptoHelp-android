@@ -17,7 +17,7 @@ interface API{
 
 
     @GET("profiles/{id}")
-    fun getUser(@Path("id") id: Int) : Call<User>
+    fun getUser(@Path("id") id: Int) : Call<Answer>
 
     companion object Factory{
         fun create(): API{
