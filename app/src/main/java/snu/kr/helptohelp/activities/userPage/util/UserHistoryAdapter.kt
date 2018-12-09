@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.card_history.view.*
 import snu.kr.helptohelp.R
-import snu.kr.helptohelp.model.Event
+import snu.kr.helptohelp.model.event.Event
 
 class UserHistoryAdapter(val histories: List<Event>) : RecyclerView.Adapter<UserHistoryAdapter.ViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {

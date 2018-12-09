@@ -10,8 +10,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_history.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.userPage.util.UserHistoryAdapter
-import snu.kr.helptohelp.model.Event
-import snu.kr.helptohelp.model.History
+import snu.kr.helptohelp.model.event.Event
 import java.io.Serializable
 
 class FragmentHistory : Fragment() {

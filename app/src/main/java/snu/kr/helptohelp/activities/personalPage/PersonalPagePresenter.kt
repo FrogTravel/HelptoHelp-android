@@ -1,13 +1,12 @@
 package snu.kr.helptohelp.activities.personalPage
 
-import android.util.Log
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import snu.kr.helptohelp.model.API
-import snu.kr.helptohelp.model.APIPseudo
-import snu.kr.helptohelp.model.Answer
+import snu.kr.helptohelp.model.profile.AnswerProfile
 import snu.kr.helptohelp.model.User
+import snu.kr.helptohelp.model.dummies.DummyObjects
 import snu.kr.helptohelp.util.SharedPreferencesHelper
 
 class PersonalPagePresenter(val view: PersonalPage.View) : PersonalPage.Presenter {
@@ -18,18 +17,19 @@ class PersonalPagePresenter(val view: PersonalPage.View) : PersonalPage.Presente
 
     init {
         val sharedPreferencesHelper = SharedPreferencesHelper(view.getContext())
-//        user = APIPseudo.getUser(1)
-//        view.showUser(user)
+//        name = APIPseudo.getName(1)
+//        view.showUser(name)
         val api = API.create()
-        api.getUser(1).enqueue(object : Callback<Answer> {
+        api.getUser(1).enqueue(object : Callback<User> {
 
-            override fun onResponse(call: Call<Answer>, response: Response<Answer>) {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
                 val answer = response.body()
-                user = answer?.data?.profile ?: User(-1, "NULL", "NULL", -1, "NULL", isVerified = false)
+                user = answer ?: DummyObjects.getDummyUser()
                 view.showUser(user)
+                //view.showTags(answer.t ?: arrayListOf())
             }
 
-            override fun onFailure(call: Call<Answer>, t: Throwable) {
+            override fun onFailure(call: Call<User>, t: Throwable) {
                 t.printStackTrace()
             }
 
@@ -54,8 +54,8 @@ class PersonalPagePresenter(val view: PersonalPage.View) : PersonalPage.Presente
     }
 
     override fun saveUser() {
-        user.name = view.getNewUserName()
-        user.description = view.getNewUserDescription()
+//        name.name = view.getNewUserName()
+//        name.description = view.getNewUserDescription()
     }
 
 }

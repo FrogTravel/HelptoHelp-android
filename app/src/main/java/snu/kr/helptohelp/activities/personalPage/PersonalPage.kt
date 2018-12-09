@@ -2,6 +2,7 @@
 package snu.kr.helptohelp.activities.personalPage
 
 import android.content.Context
+import snu.kr.helptohelp.model.Tag
 import snu.kr.helptohelp.model.User
 
 interface PersonalPage {
@@ -13,6 +14,7 @@ interface PersonalPage {
         fun getNewUserName() : String
         fun showUserEdit(user: User)
         fun getNewUserDescription(): String
+        fun showTags(tags: ArrayList<Tag>)
     }
 
     interface Presenter {

@@ -19,11 +19,11 @@ class UserReviewsAdapter(val reviews: List<Review>) : RecyclerView.Adapter<UserR
 
     override fun onBindViewHolder(viewHolder: ViewHolder, id: Int) {
         val review = reviews[id]
-        viewHolder.view.user_name.text = review.user.name
+        viewHolder.view.user_name.text = review.name
         viewHolder.view.review_text_view.text = review.reviewText
 
         GlideApp.with(viewHolder.view)
-                .load(review.user.profile_pic_url)
+                .load(review.picture)
                 .transform( CircleCrop())
                 .override(100,100)
                 .into(viewHolder.view.user_image)

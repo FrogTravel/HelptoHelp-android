@@ -1,24 +1,17 @@
 package snu.kr.helptohelp.activities.event
 
 import android.content.Intent
-import android.graphics.Bitmap
-import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_event.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.glideUtil.GlideApp
-import snu.kr.helptohelp.model.Event
-import android.util.DisplayMetrics
-import android.view.Display
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.SimpleTarget
-import com.bumptech.glide.request.transition.Transition
+import snu.kr.helptohelp.model.event.Event
 import snu.kr.helptohelp.activities.userPage.UserPage
 import snu.kr.helptohelp.activities.userPage.UserPageView
+import snu.kr.helptohelp.model.User
 
 
 class EventPageView : EventPage.View, AppCompatActivity() {
@@ -52,19 +45,26 @@ class EventPageView : EventPage.View, AppCompatActivity() {
                 .fitCenter()
                 .into(cuisine_image)
 
+
+        location.text = event.location
+
         val scale = this.resources.displayMetrics.density
         val pixels = (200 * scale + 0.5f).toInt()
         space_for_image.layoutParams.height = pixels
+    }
+
+    override fun showUser(user: User) {
+        val scale = this.resources.displayMetrics.density
 
         val userImageSize = (100 * scale + 0.5f).toInt()
+
         GlideApp.with(this)
-                .load(event.hostUser.profile_pic_url)//TODO hardcoded image
+                .load(user.profile_pic)//TODO hardcoded image
                 .override(userImageSize, userImageSize)
                 .circleCrop()
                 .into(user_image)
 
-        user_name.text = event.hostUser.name
-        location.text = event.location
+        user_name.text = user.name
     }
 
     override fun startUserPage(userId: Int) {

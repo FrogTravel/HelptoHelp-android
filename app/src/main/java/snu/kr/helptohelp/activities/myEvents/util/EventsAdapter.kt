@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.card_event.view.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.event.EventPagePresenter
 import snu.kr.helptohelp.activities.event.EventPageView
-import snu.kr.helptohelp.model.Event
+import snu.kr.helptohelp.model.event.Event
 
 class EventsAdapter(val events: List<Event>) : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {

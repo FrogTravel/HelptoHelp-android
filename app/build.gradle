@@ -16,7 +16,8 @@ android {
 
 
         buildConfigField "String", "SHARED_PREFERENCES_CONFIG_NAME", "\"SH_PREF_NAME\""
-        buildConfigField "String", "BASE_URL", "\"http://powerful-gorge-30428.herokuapp.com/api/v1/\""
+        buildConfigField "String", "BASE_URL", "\"http://18.221.77.15/api/v1/\""
+        buildConfigField "String", "SUPER_BASE_URL", "\"http://18.221.77.15/\""
     }
     buildTypes {
         release {
@@ -51,6 +52,9 @@ dependencies {
 
     //Notification
     implementation "com.android.support:support-compat:28.0.0"
+
+    //For beautiful tags
+    implementation 'com.google.android:flexbox:1.0.0'
 
 }
 

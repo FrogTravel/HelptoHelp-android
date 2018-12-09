@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.fragment_future_events.view.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.myEvents.util.EventsAdapter
 import snu.kr.helptohelp.model.APIPseudo
+import snu.kr.helptohelp.model.LocalUser
 
 class FutureEventsFragment : Fragment() {
     lateinit var adapter: EventsAdapter
@@ -21,7 +22,7 @@ class FutureEventsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_future_events, container, false)
-        adapter = EventsAdapter(APIPseudo.getFutureEventsForUsers(0))
+        adapter = EventsAdapter(LocalUser.user.futureEvents)
         view.recycler_view_future.adapter = adapter
         view.recycler_view_future.layoutManager = LinearLayoutManager(view.context)
         return view

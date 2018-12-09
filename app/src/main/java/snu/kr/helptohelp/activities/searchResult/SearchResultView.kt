@@ -14,7 +14,7 @@ import snu.kr.helptohelp.model.SearchQuery
 import snu.kr.helptohelp.activities.search.SearchView
 import snu.kr.helptohelp.activities.personalPage.PersonalPageView
 import snu.kr.helptohelp.activities.searchResult.util.SearchResultAdapter
-import snu.kr.helptohelp.model.Event
+import snu.kr.helptohelp.model.event.Event
 
 class SearchResultView : SearchResult.View, AppCompatActivity() {
     lateinit var presenter: SearchResultPresenter

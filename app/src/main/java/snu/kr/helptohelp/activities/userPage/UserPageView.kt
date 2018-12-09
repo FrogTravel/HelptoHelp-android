@@ -34,13 +34,13 @@ class UserPageView : UserPage.View, AppCompatActivity() {
 
     override fun showUser(userProfileData: UserProfileData) {
         GlideApp.with(this)
-                .load(userProfileData.user.profile_pic_url)
+                .load(userProfileData.user.profile_pic)
                 .into(user_image)
         val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
 
         val fragmentUser = FragmentUser()
         val userArgs = Bundle()
-        //TODO Может можно переделать user в Serializable, но я боюсь из-за retrofit. Потом проверить!
+        //TODO Может можно переделать name в Serializable, но я боюсь из-за retrofit. Потом проверить!
         userArgs.putSerializable(FragmentUser.USER_NAME, userProfileData.user.name)
         userArgs.putSerializable(FragmentUser.USER_DESC, userProfileData.user.description)
         fragmentUser.arguments = userArgs
@@ -48,7 +48,7 @@ class UserPageView : UserPage.View, AppCompatActivity() {
 
         val fragmentReviews = FragmentReviews()
         val reviewArgs = Bundle()
-        reviewArgs.putSerializable(FragmentReviews.REVIEW_LIST, FragmentReviews.ReviewList(userProfileData.reviews))
+        reviewArgs.putSerializable(FragmentReviews.REVIEW_LIST, FragmentReviews.ReviewList(userProfileData.user.reviews))
         fragmentReviews.arguments = reviewArgs
         viewPagerAdapter.addFragment(fragmentReviews, "Reviews")
 

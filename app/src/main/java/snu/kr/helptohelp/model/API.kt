@@ -4,6 +4,9 @@ import retrofit2.Call
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 import snu.kr.helptohelp.BuildConfig
+import snu.kr.helptohelp.model.event.AnswerEvent
+import snu.kr.helptohelp.model.event.Event
+import snu.kr.helptohelp.model.profile.AnswerProfile
 
 interface API{
     @FormUrlEncoded
@@ -16,8 +19,16 @@ interface API{
                     @Field("Latitude") lat: Float)
 
 
-    @GET("profiles/{id}")
-    fun getUser(@Path("id") id: Int) : Call<Answer>
+    @GET("profiles/{host_user}")
+    fun getUser(@Path("host_user") id: Int) : Call<User>
+
+    @GET("events/{id}")
+    fun getEvent(@Path("id") eventId: Int) : Call<Event>
+
+    @GET("profiles/mypage")
+    fun getCurrentUser() : Call<User>
+
+
 
     companion object Factory{
         fun create(): API{

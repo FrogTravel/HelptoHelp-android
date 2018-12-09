@@ -1,14 +1,14 @@
 package snu.kr.helptohelp.activities.addEvent
 
 import snu.kr.helptohelp.model.APIPseudo
-import snu.kr.helptohelp.model.Event
+import snu.kr.helptohelp.model.dummies.DummyObjects
+import snu.kr.helptohelp.model.event.Event
 
 class AddEventPresenter(val view: AddEvent.View) : AddEvent.Presenter{
     override fun onAddEventClicked() {
         APIPseudo.addEvent(getEventFromView())
     }
-
-    fun getEventFromView() = Event(hostUser = APIPseudo.getCurrentUser(),title =  view.getEventTitle(),
-            description = view.getDescription(), location =  "Seoul")
+    //TODO change to get current name
+    fun getEventFromView() = DummyObjects.getDummyEvent()
 
 }

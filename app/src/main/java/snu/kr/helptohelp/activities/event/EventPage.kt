@@ -1,14 +1,16 @@
 package snu.kr.helptohelp.activities.event
 
-import snu.kr.helptohelp.model.Event
+import snu.kr.helptohelp.model.User
+import snu.kr.helptohelp.model.event.Event
 
 interface EventPage {
     companion object {
-        val EVENT_ID = "event_id"
+        val EVENT_ID = "id"
     }
 
     interface View {
         fun showEvent(event: Event)
+        fun showUser(user: User)
         fun startUserPage(userId: Int)
     }
 

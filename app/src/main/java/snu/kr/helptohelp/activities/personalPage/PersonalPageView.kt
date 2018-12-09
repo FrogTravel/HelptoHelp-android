@@ -4,12 +4,16 @@ import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
-import com.bumptech.glide.request.RequestOptions
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 import kotlinx.android.synthetic.main.activity_profile.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.glideUtil.GlideApp
+import snu.kr.helptohelp.activities.personalPage.util.TagAdapter
+import snu.kr.helptohelp.model.Tag
 import snu.kr.helptohelp.model.User
 
 class PersonalPageView : PersonalPage.View, Activity() {
@@ -27,7 +31,7 @@ class PersonalPageView : PersonalPage.View, Activity() {
 
     override fun showUser(user: User) {
         GlideApp.with(this)
-                .load(user.profile_pic_url)
+                .load(user.profile_pic)
                 .placeholder(R.mipmap.ic_launcher)
                 .override(400,400)
                 .dontAnimate()//Some problem with placeholders in Glide
@@ -36,6 +40,12 @@ class PersonalPageView : PersonalPage.View, Activity() {
 
         user_name.text = user.name
         desctiption_text_view.text = user.description
+
+        verified_sign.visibility = if(user.isVerified) View.VISIBLE else View.GONE
+
+        age.text = user.age.toString()
+
+        address.text = user.address
     }
 
 
@@ -63,7 +73,7 @@ class PersonalPageView : PersonalPage.View, Activity() {
 
     override fun showUserEdit(user: User) {
         GlideApp.with(this)
-                .load(user.profile_pic_url)
+                .load(user.profile_pic)
                 .transform( CircleCrop())
                 .override(400,400)
                 .into(user_image_edit)
@@ -73,4 +83,14 @@ class PersonalPageView : PersonalPage.View, Activity() {
     }
 
     override fun getNewUserDescription() = description_edit_text.text.toString()
+
+    override fun showTags(tags: ArrayList<Tag>) {
+        tags_rv.adapter = TagAdapter(tags)
+        val flexboxLayoutManager = FlexboxLayoutManager(this)
+        flexboxLayoutManager.apply {
+            flexDirection = FlexDirection.ROW
+            justifyContent = JustifyContent.FLEX_START
+        }
+        tags_rv.layoutManager = flexboxLayoutManager
+    }
 }

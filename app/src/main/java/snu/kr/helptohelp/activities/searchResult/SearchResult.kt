@@ -1,6 +1,6 @@
 package snu.kr.helptohelp.activities.searchResult
 
-import snu.kr.helptohelp.model.Event
+import snu.kr.helptohelp.model.event.Event
 import snu.kr.helptohelp.model.SearchQuery
 
 interface SearchResult {

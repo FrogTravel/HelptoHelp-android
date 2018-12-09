@@ -8,6 +8,8 @@ import snu.kr.helptohelp.R
 import android.widget.Toast
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
+import snu.kr.helptohelp.BuildConfig
 import snu.kr.helptohelp.activities.myEvents.MyEventsActivity
 import snu.kr.helptohelp.activities.registration.RegistrationView
 
@@ -48,7 +50,9 @@ class LoginView: Login.View, AppCompatActivity(){
     }
 
     fun onRegister(view: View){
-        startActivityForResult(Intent(this, RegistrationView::class.java), RESULT_CODE)
+        //startActivityForResult(Intent(this, RegistrationView::class.java), RESULT_CODE)
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(BuildConfig.SUPER_BASE_URL + "visitor/main"))
+        startActivity(browserIntent)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
