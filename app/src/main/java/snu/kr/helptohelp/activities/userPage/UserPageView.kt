@@ -13,6 +13,7 @@ import snu.kr.helptohelp.activities.userPage.util.ViewPagerAdapter
 import snu.kr.helptohelp.model.User
 
 class UserPageView : UserPage.View, AppCompatActivity() {
+
     lateinit var presenter: UserPage.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
