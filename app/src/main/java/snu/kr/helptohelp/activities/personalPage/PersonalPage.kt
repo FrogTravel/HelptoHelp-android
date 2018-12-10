@@ -15,6 +15,9 @@ interface PersonalPage {
         fun showUserEdit(user: User)
         fun getNewUserDescription(): String
         fun showTags(tags: ArrayList<Tag>)
+        fun getNewAge() : Int
+        fun getNewLanguage() : String
+        fun getNewAddress() : String
     }
 
     interface Presenter {

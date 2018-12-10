@@ -6,7 +6,6 @@ import retrofit2.Response
 import snu.kr.helptohelp.model.API
 import snu.kr.helptohelp.model.APIPseudo
 import snu.kr.helptohelp.model.User
-import snu.kr.helptohelp.model.UserProfileData
 import snu.kr.helptohelp.model.dummies.DummyObjects
 import snu.kr.helptohelp.model.profile.AnswerProfile
 
@@ -26,7 +25,7 @@ class UserPagePresenter(val view: UserPage.View): UserPage.Presenter{
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 val answerProfile = response.body()
                 val user = answerProfile ?: DummyObjects.getDummyUser()
-                view.showUser(UserProfileData(user, arrayListOf(APIPseudo.review1), arrayListOf(APIPseudo.futureEvent1)))
+                view.showUser(user)
             }
 
         })

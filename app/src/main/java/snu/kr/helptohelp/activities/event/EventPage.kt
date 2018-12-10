@@ -12,10 +12,12 @@ interface EventPage {
         fun showEvent(event: Event)
         fun showUser(user: User)
         fun startUserPage(userId: Int)
+        fun startChatIntent(uri: String)
     }
 
     interface Presenter {
         fun setEventId(id: Int)
         fun onUserCard()
+        fun onChatClick()
     }
 }

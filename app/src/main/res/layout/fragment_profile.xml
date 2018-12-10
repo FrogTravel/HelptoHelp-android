@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="8dp">
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp">
 
     <TextView
         android:id="@+id/user_name"
@@ -15,11 +16,41 @@
         android:text="TextView"
         style="@style/HeadingText"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <TextView
+            android:id="@+id/age"
+            style="@style/SecondaryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/experience"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            style="@style/SecondaryText"/>
+    </LinearLayout>
+
     <TextView
-        android:id="@+id/food_types"
+        android:id="@+id/language"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
+        style="@style/SecondaryText"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About me: "
         style="@style/NormalText"/>
 
     <TextView
@@ -28,4 +59,10 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         style="@style/NormalText"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/food_types"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

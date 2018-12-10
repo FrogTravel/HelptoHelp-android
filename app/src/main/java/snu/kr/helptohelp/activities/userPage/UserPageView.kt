@@ -10,7 +10,7 @@ import snu.kr.helptohelp.activities.userPage.fragments.FragmentHistory
 import snu.kr.helptohelp.activities.userPage.fragments.FragmentReviews
 import snu.kr.helptohelp.activities.userPage.fragments.FragmentUser
 import snu.kr.helptohelp.activities.userPage.util.ViewPagerAdapter
-import snu.kr.helptohelp.model.UserProfileData
+import snu.kr.helptohelp.model.User
 
 class UserPageView : UserPage.View, AppCompatActivity() {
     lateinit var presenter: UserPage.Presenter
@@ -32,31 +32,25 @@ class UserPageView : UserPage.View, AppCompatActivity() {
         return true
     }
 
-    override fun showUser(userProfileData: UserProfileData) {
+    override fun showUser(user: User) {
         GlideApp.with(this)
-                .load(userProfileData.user.profile_pic)
+                .load(user.profile_pic)
                 .into(user_image)
         val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager)
 
         val fragmentUser = FragmentUser()
         val userArgs = Bundle()
         //TODO Может можно переделать name в Serializable, но я боюсь из-за retrofit. Потом проверить!
-        userArgs.putSerializable(FragmentUser.USER_NAME, userProfileData.user.name)
-        userArgs.putSerializable(FragmentUser.USER_DESC, userProfileData.user.description)
+        userArgs.putSerializable(FragmentUser.USER_NAME, user)
         fragmentUser.arguments = userArgs
         viewPagerAdapter.addFragment(fragmentUser, "Overview")
 
         val fragmentReviews = FragmentReviews()
         val reviewArgs = Bundle()
-        reviewArgs.putSerializable(FragmentReviews.REVIEW_LIST, FragmentReviews.ReviewList(userProfileData.user.reviews))
+        reviewArgs.putSerializable(FragmentReviews.REVIEW_LIST, FragmentReviews.ReviewList(user.reviews))
         fragmentReviews.arguments = reviewArgs
         viewPagerAdapter.addFragment(fragmentReviews, "Reviews")
 
-        val fragmentHistory = FragmentHistory()
-        val historyArgs = Bundle()
-        historyArgs.putSerializable(FragmentHistory.HISTORY_ARG, FragmentHistory.HistoryList(userProfileData.history))
-        fragmentHistory.arguments = historyArgs
-        viewPagerAdapter.addFragment(fragmentHistory, "History")
         view_pager.adapter = viewPagerAdapter
     }
 

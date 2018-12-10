@@ -1,6 +1,8 @@
 package snu.kr.helptohelp.activities.personalPage
 
 import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
@@ -46,6 +48,7 @@ class PersonalPageView : PersonalPage.View, Activity() {
         age.text = user.age.toString()
 
         address.text = user.address
+        language.text = user.language
     }
 
 
@@ -80,6 +83,9 @@ class PersonalPageView : PersonalPage.View, Activity() {
 
         user_name_edit_text.setText(user.name)
         description_edit_text.setText(user.description)
+        age_edit_text.setText(user.age.toString())
+        languages_edit_text.setText(user.language)
+        address_edit_text.setText(user.address)
     }
 
     override fun getNewUserDescription() = description_edit_text.text.toString()
@@ -93,4 +99,12 @@ class PersonalPageView : PersonalPage.View, Activity() {
         }
         tags_rv.layoutManager = flexboxLayoutManager
     }
+
+    override fun getNewAge() = age_edit_text.text.toString().toInt()
+
+    override fun getNewLanguage() = languages_edit_text.text.toString()
+
+    override fun getNewAddress() = address_edit_text.text.toString()
+
+
 }

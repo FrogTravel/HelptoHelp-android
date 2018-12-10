@@ -54,4 +54,7 @@ class EventPagePresenter(val view: EventPage.View) : EventPage.Presenter {
         view.startUserPage(event.host_user.id)
     }
 
+    override fun onChatClick() {
+        view.startChatIntent(event.chatlink)
+    }
 }

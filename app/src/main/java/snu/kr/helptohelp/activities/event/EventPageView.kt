@@ -1,6 +1,7 @@
 package snu.kr.helptohelp.activities.event
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
@@ -77,5 +78,13 @@ class EventPageView : EventPage.View, AppCompatActivity() {
         presenter.onUserCard()
     }
 
+    fun onChat(view: View){
+        presenter.onChatClick()
+    }
+
+    override fun startChatIntent(uri: String) {
+        val chatIntent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+        startActivity(chatIntent)
+    }
 
 }

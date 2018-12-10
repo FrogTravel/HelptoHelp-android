@@ -23,4 +23,10 @@ class AddEventView : AddEvent.View, Activity() {
     override fun getEventTitle() = title_edit_text.text.toString()
 
     override fun getDescription() = description_edit_text.text.toString()
+
+    override fun getChatlink() = chatlink_edit_text.text.toString()
+
+    override fun getLocation() = location_edit_text.text.toString()
+
+    override fun getTagRaw() = food_tags_edit_text.text.toString()
 }

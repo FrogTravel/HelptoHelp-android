@@ -10,4 +10,5 @@ data class Event(@SerializedName("event_id") val id: Int = -1,
                  @SerializedName("event_description") val description: String,
                  @SerializedName("event_location") val location: String,
                  @SerializedName("event_hosted") val hosted_date: String /*Date of event if it is finished (?)*/,
+                 @SerializedName("event_chatlink") val chatlink: String,
                  val reviewed: Boolean /*Has some reviews on the event*/)

@@ -1,5 +1,6 @@
 package snu.kr.helptohelp.model
 
+import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
@@ -28,6 +29,12 @@ interface API{
     @GET("profiles/mypage")
     fun getCurrentUser() : Call<User>
 
+    @POST()
+    fun matchUser()
+
+    @POST("events/")
+    @FormUrlEncoded
+    fun addEvent(@FieldMap params : Map<String, String>) : Call<Event>
 
 
     companion object Factory{
@@ -35,6 +42,7 @@ interface API{
             val retrofit = retrofit2.Retrofit.Builder()
                     .addConverterFactory(GsonConverterFactory.create())
                     .baseUrl(BuildConfig.BASE_URL)
+                    .client(OkHttpClient())
                     .build()
 
             return retrofit.create(API::class.java)

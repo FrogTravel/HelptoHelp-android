@@ -19,15 +19,19 @@
 
     <TextView
         android:id="@+id/user_name"
-        android:layout_width="wrap_content"
+        style="@style/HeadingText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/verified_sign"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/user_image"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/HeadingText"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/edit_fab"
@@ -63,10 +67,10 @@
         android:id="@+id/verified_sign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/user_name"
-        app:layout_constraintStart_toEndOf="@+id/user_name"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/user_name"
         app:srcCompat="@drawable/ic_verified" />
 
@@ -88,7 +92,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="Age"
         app:layout_constraintStart_toEndOf="@+id/user_image"
         app:layout_constraintTop_toBottomOf="@+id/user_name" />
 
@@ -99,7 +103,18 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="Address"
         app:layout_constraintStart_toEndOf="@+id/user_image"
         app:layout_constraintTop_toBottomOf="@+id/age" />
+
+    <TextView
+        android:id="@+id/language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/user_image"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
 </android.support.constraint.ConstraintLayout>

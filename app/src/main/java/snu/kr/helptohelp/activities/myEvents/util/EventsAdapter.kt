@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.card_event.view.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.activities.event.EventPagePresenter
 import snu.kr.helptohelp.activities.event.EventPageView
+import snu.kr.helptohelp.activities.glideUtil.GlideApp
 import snu.kr.helptohelp.model.event.Event
 
 class EventsAdapter(val events: List<Event>) : RecyclerView.Adapter<EventsAdapter.ViewHolder>() {
@@ -28,6 +29,7 @@ class EventsAdapter(val events: List<Event>) : RecyclerView.Adapter<EventsAdapte
         val intent = Intent(viewHolder.view.context, EventPageView::class.java)
         intent.putExtra(EventPagePresenter.EVENT_ID, event.id)
         viewHolder.view.setOnClickListener { startActivity(viewHolder.view.context, intent, null) }
+
     }
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
