@@ -14,6 +14,7 @@ import snu.kr.helptohelp.model.SearchQuery
 import snu.kr.helptohelp.activities.search.SearchView
 import snu.kr.helptohelp.activities.personalPage.PersonalPageView
 import snu.kr.helptohelp.activities.searchResult.util.SearchResultAdapter
+import snu.kr.helptohelp.model.UserMatch
 import snu.kr.helptohelp.model.event.Event
 
 class SearchResultView : SearchResult.View, AppCompatActivity() {
@@ -66,9 +67,9 @@ class SearchResultView : SearchResult.View, AppCompatActivity() {
         }
     }
 
-    override fun showResults(events: List<Event>) {
+    override fun showResults(users: ArrayList<UserMatch>) {
 
-        result_recyclers.adapter = SearchResultAdapter(events)
+        result_recyclers.adapter = SearchResultAdapter(users)
         result_recyclers.layoutManager = LinearLayoutManager(this)
 
         error.visibility = View.GONE

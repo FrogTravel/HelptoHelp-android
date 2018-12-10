@@ -29,8 +29,9 @@ interface API{
     @GET("profiles/mypage")
     fun getCurrentUser() : Call<User>
 
-    @POST()
-    fun matchUser()
+    @POST("profiles/match/{id}")
+    @FormUrlEncoded
+    fun findMatch(@Path("id") id: Int, @FieldMap params: Map<String, String>) : Call<PostAnswerMatchUser>
 
     @POST("events/")
     @FormUrlEncoded

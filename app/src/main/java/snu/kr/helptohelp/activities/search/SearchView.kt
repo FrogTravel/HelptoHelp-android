@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
+import kotlinx.android.synthetic.main.activity_filter.*
+import kotlinx.android.synthetic.main.activity_profile.*
 import snu.kr.helptohelp.R
 import snu.kr.helptohelp.model.SearchQuery
 
@@ -31,7 +33,11 @@ class SearchView : Search.View, AppCompatActivity() {
 
     fun onSearch(view: View){
         val returnIntent = Intent()
-        returnIntent.putExtra("result", SearchQuery(1, "Seoul"))
+        returnIntent.putExtra("result", SearchQuery(
+                language = language_edit_text.text.toString(),
+                address = address_edit_text.text.toString(),
+                name = name_edit_text.text.toString()
+        ))
         setResult(Activity.RESULT_OK, returnIntent)
         finish()
     }

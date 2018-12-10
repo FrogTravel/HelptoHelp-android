@@ -2,11 +2,12 @@ package snu.kr.helptohelp.activities.searchResult
 
 import snu.kr.helptohelp.model.event.Event
 import snu.kr.helptohelp.model.SearchQuery
+import snu.kr.helptohelp.model.UserMatch
 
 interface SearchResult {
     interface View {
         fun searchForPeople()
-        fun showResults(events: List<Event>)
+        fun showResults(users: ArrayList<UserMatch>)
         fun showError()
     }
 
