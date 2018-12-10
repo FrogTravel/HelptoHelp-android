@@ -33,7 +33,13 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Language (Optional)"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"/>
 
         <EditText
             android:id="@+id/address_edit_text"
@@ -43,7 +49,13 @@
             android:hint="Address (Optional)"
             android:inputType="textPersonName"
             tools:layout_editor_absoluteX="85dp"
-            tools:layout_editor_absoluteY="327dp" />
+            tools:layout_editor_absoluteY="327dp"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"/>
     </LinearLayout>
 
     <Button
